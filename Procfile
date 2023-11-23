@@ -1,0 +1,1 @@
+web: gunicorn testurlshortener.wsgi --log-file -
