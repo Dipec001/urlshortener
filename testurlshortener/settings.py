@@ -77,10 +77,6 @@ WSGI_APPLICATION = 'testurlshortener.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': 'postgres://yacrkirpzbpquw:789713ceeaa86f4ba5378861de2a7e94b51d62c2205617173538f61f5f0be577@ec2-54-234-13-16.compute-1.amazonaws.com:5432/daa0aq2ffb2s2i'
-# }
-
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
