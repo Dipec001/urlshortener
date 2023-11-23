@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-p_-nx_kc6e(ln7r2x2v&8by!p8l&u%4a+l42ki2r@7=&itdxr6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,15 +77,12 @@ WSGI_APPLICATION = 'testurlshortener.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': 'postgres://yacrkirpzbpquw:789713ceeaa86f4ba5378861de2a7e94b51d62c2205617173538f61f5f0be577@ec2-54-234-13-16.compute-1.amazonaws.com:5432/daa0aq2ffb2s2i'
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'testurlshortener',
-        'USER': 'postgres',
-        'PASSWORD': 'Dipec12345@',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
